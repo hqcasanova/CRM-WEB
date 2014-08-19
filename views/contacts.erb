@@ -1,0 +1,14 @@
+<h1>All contacts</h1>
+<ul>
+  <% @@rolodex.display_all_contacts.each do |contact| %>
+    <li>
+      <fieldset>
+        First name: <%= contact.first_name %> <br> 
+        Last name: <%= contact.last_name %> <br>
+        Email: <%= contact.email %> <br>
+        Notes: <%= contact.notes %> <br>
+      </fieldset>
+    </li>
+  <% end %>
+</ul>
+<p><a title="Go back to the main menu" href="/">Main menu</a></p>

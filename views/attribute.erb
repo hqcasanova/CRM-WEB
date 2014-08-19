@@ -1,0 +1,7 @@
+<h1>All emails</h1>
+<ul>
+  <% @@rolodex.display_all_contacts.each do |contact| %>
+    <li><%= contact.email %></li>
+  <% end %>
+</ul>
+<p><a title="Go back to the main menu" href="/">Main menu</a></p>
