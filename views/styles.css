@@ -1,0 +1,42 @@
+html, body {
+      font-family: Georgia, Baskerville, Times, serif;
+      font-size: 24px;
+      line-height: 1.5;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      background-color: tomato;
+      color: white;
+    }
+
+    a {
+      color: black;
+      background-color: yellow;
+    }
+
+    a:active, a:visited {
+      background-color: yellow;
+    }
+
+    .site-nav {
+      color: white;
+      background-color: black;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+    }
+
+    nav > ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0 1em;
+    }
+
+    .menu-item {
+      cursor: pointer;
+      color: yellow;
+      display: inline-block;
+    }
