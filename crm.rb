@@ -3,10 +3,11 @@ require_relative 'contact'      #the _relative makes sure it works relative to l
 require_relative 'rolodex'
 
 @@rolodex = Rolodex.new         #like a global variable for the lifetime of the app; ignore the warning "class variable access from toplevel"
+@@app_name = "HQCRM"
+@@company_name = "HQCasanova"
 
 #Main menu
 get '/' do 
-  @crm_app_name = "HQCRM"
   erb :index                    
 end
 

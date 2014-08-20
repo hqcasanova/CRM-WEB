@@ -2,9 +2,33 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>HQCRM</title>
+  <title><%= @@company_name %>: <%= @@app_name %></title>
+  <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-  <%= yield %>
+  <header>
+    <h1><%= @@app_name %> by <%= @@company_name %></h1>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="/">Main menu</a></li>  
+      <li><a href="/contacts">Show contacts</a></li>
+      <li><a href="/attribute">Show emails</a></li>
+      <li><a href="/contacts/new">New contact</a></li>
+    </ul>
+  </nav>
+  <section>
+    <%= yield %>
+  </section>
+  <footer>
+    <address>
+      <a class="email" title="Contact form on HQCasanova.com" href="http://www.hqcasanova.com/en/#contactForm">Contact <%= @@company_name %></a>
+      <a class="phone" title="Bitmaker's phone" href="tel:+1128725674">+1 647 4985904</a>
+    </address>
+    <a rel="license" title="Human-readable summary of CC BY-NC-SA license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.en_GB" target="_blank">
+      <small property="dc:publisher">Hector Casanova</small>
+      <small property="dc:dateCopyrighted">2014</small>
+    </a>
+  </footer>
 </body>
 </html>
