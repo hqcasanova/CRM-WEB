@@ -1,11 +1,11 @@
 <h1>All contacts</h1>
 <ul class="contact-list">
   <% @@rolodex.display_all_contacts.each do |contact| %>
-    <li>
-      <span>First name:</span> <%= contact.first_name %> <br> 
-      <span>Last name:</span> <%= contact.last_name %> <br>
-      <span>Email:</span> <%= contact.email %> <br>
-      <span>Notes:</span> <%= contact.notes %> <br>
+    <li class="contact">
+      <p><span>First name:</span> <%= contact.first_name %> </p> 
+      <p><span>Last name:</span> <%= contact.last_name %> </p>
+      <p><span>Email:</span> <%= contact.email %> </p>
+      <p><span>Notes:</span> <%= contact.notes %> </p>
     </li>
   <% end %>
 </ul>

@@ -127,7 +127,7 @@ footer > a, address {
 .contact-list {
   text-align: center;
 }
-.contact-list li {
+section .contact {
   display: inline-block;
   margin: 2%;
   padding: 3%;
@@ -137,7 +137,7 @@ footer > a, address {
   box-shadow: .2em .2em .2em rgba(0,0,0,.5);
   border: .2em solid #145a66;
 }
-.contact-list span {
+section .contact span {
   padding: .2em;
   font-size: .8em;
   color: white;

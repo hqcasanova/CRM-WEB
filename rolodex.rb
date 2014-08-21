@@ -35,6 +35,11 @@ class Rolodex
     return false 
   end
 
+  #Searches for a contact with a certain id and returns the corresponding contact object
+  def search_contact(id)
+    @contacts.find {|contact| id == contact.id }
+  end
+
   #Modifies the attribute, identified by 'attr_code', of a certain contact selected by email
   #Returns the modified contact object unless an error occurred, in which case false is returned instead.
   def modify(contact, attr_code, new_value)

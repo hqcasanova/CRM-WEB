@@ -1,0 +1,37 @@
+<!-->
+  Requests are made up of two parts:
+  VERB: GET, POST, PUT, PATCH, DELETE
+  NOUN: /films, /films/:id
+
+  GET /films => Get me all the films
+  POST /films => Create a new film
+
+  GET request
+  Appends the parameters to the query string of the URL e.g. /film?title=Jaws&country=USA
+
+  POST request
+  Almost same process but the "get parameters" are attached to the body of the request
+</!-->
+<form id="film-form" action="/films" method="post">
+  <h1>Create a new film</h1>
+  <label for="filmname"></label>
+  <input type="text" name="filmname" placeholder="hint" id="filmname">
+
+  <label>
+    <input type="radio" checked="checked" name="genre" value="action">
+  </label>
+
+  <label>
+    <input type="checkbox" checked="checked" name="genre[]" value="action">
+  </label>
+
+
+  <textarea name="" id="" cols="30" rows="10">DEFAULT TEXT</textarea>
+  <select name="" id="">
+    <option value="0"></option>
+    <option value="1"></option>
+    <option value="2"></option>
+    <option value="3"></option>
+    <option value="4"></option>
+  </select>
+</form>

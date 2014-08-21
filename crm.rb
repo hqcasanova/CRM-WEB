@@ -5,17 +5,26 @@ require_relative 'rolodex'
 @@rolodex = Rolodex.new         #like a global variable for the lifetime of the app; ignore the warning "class variable access from toplevel"
 @@app_name = "HQCRM"
 @@company_name = "HQCasanova"
-@@index = false
+@index = false
+
+#Temporary fake data so that we always find contact with id 1000.
+@@rolodex.add_contact("Johnny", "Bravo", "johnny@bitmakerlabs.com", "Rockstar")
 
 #Main menu
 get '/' do 
-  @@index = true
+  @index = true
   erb :index                    
 end
 
 #List all the contacts
 get '/contacts' do
   erb :contacts                 #erb 'contacts/new.rb' if you reflect the structure of the url
+end
+
+#Single resource for a contact
+get '/contacts/1000' do
+  @contact = @@rolodex.search_contact(1000)
+  erb :show_contact
 end
 
 #Display an attribute

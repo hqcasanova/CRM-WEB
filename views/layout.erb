@@ -19,8 +19,7 @@
   </nav>
   <section>
     <%= yield %>
-    <!-- Show the back button only if on page other than home. Not working thought-->
-    <% unless @@index %>
+    <% unless @index %>
       <p class="back"><a title="Go back to the main menu" href="/">Back to menu</a></p>
     <% end %>
   </section>
