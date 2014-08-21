@@ -89,6 +89,5 @@ class Rolodex
   #Deletes a given contact. Returns it afterwards.
   def delete(contact)
     @contacts.delete(contact)
-    return contact
   end  
 end

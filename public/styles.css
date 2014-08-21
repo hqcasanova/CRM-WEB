@@ -172,6 +172,9 @@ input[type="submit"] {
   margin-bottom: 1em;
 }
 
+.back {
+  margin-top: 2em;
+}
 .back:before {
   content: "\25C0";
   padding-right: .4em;

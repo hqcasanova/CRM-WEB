@@ -55,7 +55,17 @@ put "/contacts/:id" do
     @contact.last_name = params[:last_name]
     @contact.email = params[:email]
     @contact.notes = params[:notes]
+    redirect to("/contacts")
+  else
+    raise Sinatra::NotFound
+  end
+end
 
+#Handle delete contact form submission (POST request + method argument specifying DELETE)
+delete "/contacts/:id" do
+  @contact = @@rolodex.search_contact(params[:id].to_i)
+  if @contact
+    @@rolodex.delete(@contact)
     redirect to("/contacts")
   else
     raise Sinatra::NotFound
