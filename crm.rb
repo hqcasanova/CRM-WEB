@@ -47,7 +47,22 @@ get '/attribute' do             #at the moment, shows all emails
   erb :attribute
 end
 
-#Process data from contact creation form: the POST action for the contact form
+#Handle edit contact form submission (POST request + method argument specifying PUT)
+put "/contacts/:id" do
+  @contact = @@rolodex.search_contact(params[:id].to_i)
+  if @contact
+    @contact.first_name = params[:first_name]
+    @contact.last_name = params[:last_name]
+    @contact.email = params[:email]
+    @contact.notes = params[:notes]
+
+    redirect to("/contacts")
+  else
+    raise Sinatra::NotFound
+  end
+end
+
+#Handle contact creation form submission (POST request)
 post '/contacts' do
   puts params
   @@rolodex.add_contact(params['first_name'], params['last_name'], params['email'], params['note'])
