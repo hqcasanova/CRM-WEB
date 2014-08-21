@@ -5,9 +5,11 @@ require_relative 'rolodex'
 @@rolodex = Rolodex.new         #like a global variable for the lifetime of the app; ignore the warning "class variable access from toplevel"
 @@app_name = "HQCRM"
 @@company_name = "HQCasanova"
+@@index = false
 
 #Main menu
 get '/' do 
+  @@index = true
   erb :index                    
 end
 

@@ -1,42 +1,182 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+   With minor changes for default line-height and font-size
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
 html, body {
-      font-family: Georgia, Baskerville, Times, serif;
-      font-size: 24px;
-      line-height: 1.5;
-      margin: 0;
-      padding: 0;
-    }
+  font-family: Georgia, Baskerville, Times, serif;
+  font-size: 24px;
+  line-height: 1.5;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+* {
+  box-sizing: border-box;
+}
+/***** END OF RESET *****/
 
-    h1 {
-      background-color: tomato;
-      color: white;
-    }
+header {
+  height: 2.2em;
+  color: white;
+  background-color: #145a66
+}
+h1 {
+  font-size: 1.5em;
+  font-style: italic;
+  text-align: center;
+}
 
-    a {
-      color: black;
-      background-color: yellow;
-    }
+.site-nav {
+  top: 2.2em;
+  bottom: 0;  
+  padding: .5em 0;
+  width: 20%;
+  text-align: center;
+  background-color: #983;
+}
 
-    a:active, a:visited {
-      background-color: yellow;
-    }
+section {
+  overflow: auto;
+  top: 2.2em;
+  right: 0;
+  bottom: 1.5em;
+  padding: 0 2%;
+  width: 80%;
+}
 
-    .site-nav {
-      color: white;
-      background-color: black;
-      position: fixed;
-      width: 100%;
-      top: 0;
-      left: 0;
-    }
+section > h1 {
+  margin: .8em 0;
+  font-size: 1.3em;
+  border-bottom: 1px solid black;
+}
 
-    nav > ul {
-      list-style-type: none;
-      margin: 0;
-      padding: 0 1em;
-    }
+.site-nav, section {
+  position: absolute;
+}
 
-    .menu-item {
-      cursor: pointer;
-      color: yellow;
-      display: inline-block;
-    }
+footer {
+  position: absolute;
+  bottom: 0;
+  height: 1.5em;
+  width: 100%;
+  background-color: #145a66
+}
+
+.site-nav a, footer a {
+  font-size: .8em;
+  color: white;
+  text-decoration: none;
+}
+.site-nav a:hover, footer a:hover {
+  text-decoration: underline;
+}
+
+footer > a, address {
+  float: left;
+  width: 50%;
+  text-align: center;
+}
+
+.main-menu {
+  line-height: 3em;
+}
+.main-menu li:before {
+  content: "\25B6";
+  padding-right: .4em;
+}
+
+.contact-list {
+  text-align: center;
+}
+.contact-list li {
+  display: inline-block;
+  margin: 2%;
+  padding: 3%;
+  width: 45%;
+  text-align: left;
+  border-radius: 2em;
+  box-shadow: .2em .2em .2em rgba(0,0,0,.5);
+  border: .2em solid #145a66;
+}
+.contact-list span {
+  padding: .2em;
+  font-size: .8em;
+  color: white;
+  background-color: #145a66;
+}
+
+legend {
+  font-weight: bold;
+}
+input {
+  padding: .4em;
+  font-size: .8em;
+  border-radius: .6em;
+}
+label {
+  font-size: .8em;
+  margin-top: .9em;
+}
+label, input {
+  width: 90%;
+  display: block;
+}
+fieldset {
+  float: left;
+  width: 50%;
+  min-width: 320px;
+  margin-bottom: 1.5em;
+}
+input[type="submit"] {
+  clear: both;
+  width: auto;
+  margin-bottom: 1em;
+}
+
+.back:before {
+  content: "\25C0";
+  padding-right: .4em;
+}
+.email:after {
+  content: '|';
+  padding-left: .4em;
+}

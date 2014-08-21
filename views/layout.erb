@@ -9,7 +9,7 @@
   <header>
     <h1><%= @@app_name %> by <%= @@company_name %></h1>
   </header>
-  <nav>
+  <nav class="site-nav">
     <ul>
       <li><a href="/">Main menu</a></li>  
       <li><a href="/contacts">Show contacts</a></li>
@@ -19,6 +19,10 @@
   </nav>
   <section>
     <%= yield %>
+    <!-- Show the back button only if on page other than home. Not working thought-->
+    <% unless @@index %>
+      <p class="back"><a title="Go back to the main menu" href="/">Back to menu</a></p>
+    <% end %>
   </section>
   <footer>
     <address>
