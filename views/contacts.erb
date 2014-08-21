@@ -2,10 +2,12 @@
 <ul class="contact-list">
   <% @@rolodex.display_all_contacts.each do |contact| %>
     <li class="contact">
-      <p><span>First name:</span> <%= contact.first_name %> </p> 
-      <p><span>Last name:</span> <%= contact.last_name %> </p>
-      <p><span>Email:</span> <%= contact.email %> </p>
-      <p><span>Notes:</span> <%= contact.notes %> </p>
+      <a tile="View this contact" href="/contacts/<%= contact.id %>">
+        <p><span>First name:</span> <%= contact.first_name %> </p> 
+        <p><span>Last name:</span> <%= contact.last_name %> </p>
+        <p><span>Email:</span> <%= contact.email %> </p>
+        <p><span>Notes:</span> <%= contact.notes %> </p>
+      </a>
     </li>
   <% end %>
 </ul>

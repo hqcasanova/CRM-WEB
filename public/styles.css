@@ -52,6 +52,7 @@ table {
 * {
   box-sizing: border-box;
 }
+a {color: black}
 /***** END OF RESET *****/
 
 header {
@@ -129,6 +130,8 @@ footer > a, address {
 }
 section .contact {
   display: inline-block;
+}
+section li.contact {
   margin: 2%;
   padding: 3%;
   width: 45%;
@@ -137,11 +140,17 @@ section .contact {
   box-shadow: .2em .2em .2em rgba(0,0,0,.5);
   border: .2em solid #145a66;
 }
+li.contact:hover {
+  box-shadow: 0 0 0 7px rgba(220,220,220,.4);
+}
 section .contact span {
   padding: .2em;
   font-size: .8em;
   color: white;
   background-color: #145a66;
+}
+.contact a {
+  text-decoration: none;
 }
 
 legend {
@@ -171,7 +180,15 @@ input[type="submit"] {
   width: auto;
   margin-bottom: 1em;
 }
-
+.toolbox {
+  position: absolute;
+  top: .8em;
+  right: .8em;
+  float: right;
+}
+.toolbox form {
+  display: inline-block;
+}
 .back {
   margin-top: 2em;
 }
