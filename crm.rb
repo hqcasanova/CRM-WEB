@@ -18,6 +18,15 @@ get '/contacts/new' do
   erb :new_contact
 end
 
+get "/contacts/:id/edit" do
+  @contact = @@rolodex.search_contact(params[:id].to_i)
+  if @contact
+    erb :edit_contact
+  else
+    raise Sinatra::NotFound
+  end
+end
+
 #Single resource for a contact
 get '/contacts/:id' do
   @contact = @@rolodex.search_contact(params[:id].to_i)
