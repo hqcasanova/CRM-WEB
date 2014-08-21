@@ -21,7 +21,11 @@ end
 #Single resource for a contact
 get '/contacts/:id' do
   @contact = @@rolodex.search_contact(params[:id].to_i)
-  erb :show_contact
+  if @contact
+    erb :show_contact
+  else
+    raise Sinatra::NotFound
+  end
 end
 
 #List all the contacts
