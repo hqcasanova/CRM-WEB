@@ -6,7 +6,6 @@ DataMapper.setup(:default, "sqlite3:database.sqlite3")    #creates a local file 
 
 class Contact
   include DataMapper::Resource
-  attr_accessor :id, :first_name, :last_name, :email, :notes
 
   property :id, Serial
   property :first_name, String
@@ -58,6 +57,7 @@ end
 
 #List all the contacts
 get '/contacts' do
+  @contacts = Contact.all       #select * from contacts
   erb :contacts                 #erb 'contacts/new.rb' if you reflect the structure of the url
 end
 
@@ -94,7 +94,13 @@ end
 #Handle contact creation form submission (POST request)
 post '/contacts' do
   puts params
-  @@rolodex.add_contact(params['first_name'], params['last_name'], params['email'], params['note'])
+  #@@rolodex.add_contact(params['first_name'], params['last_name'], params['email'], params['note'])
+  contact = Contact.create(
+    :first_name => params[:first_name],
+    :last_name => params[:last_name],
+    :email => params[:email],
+    :note => params[:note]
+  )
   redirect to('/contacts')      #Automatic redirection to all contacts. UX enhancement
 end
 
