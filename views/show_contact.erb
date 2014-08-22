@@ -1,7 +1,7 @@
 <h1><%= @contact.first_name %> <%= @contact.last_name %></h1>
 <div class="contact">
   <p><span>Email:</span> <%= @contact.email %></p>
-  <p><span>Notes:</span> <%= @contact.notes %></p>
+  <p><span>Notes:</span> <%= @contact.note %></p>
 </div>
 <div class="toolbox">
   <a class="edit" title="Edit contact" href="/contacts/<%= @contact.id %>/edit">Edit</a>

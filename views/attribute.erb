@@ -1,6 +1,6 @@
 <h1>All emails</h1>
 <ul>
-  <% @@rolodex.display_all_contacts.each do |contact| %>
+  <% @contacts.each do |contact| %>
     <li><%= contact.email %></li>
   <% end %>
 </ul>

@@ -46,7 +46,7 @@ end
 
 #Single resource for a contact
 get '/contacts/:id' do
-  @contact = @@rolodex.search_contact(params[:id].to_i)
+  @contact = Contact.get(params[:id].to_i)
   if @contact
     @show_contact = true
     erb :show_contact
@@ -63,6 +63,8 @@ end
 
 #Display an attribute
 get '/attribute' do             #at the moment, shows all emails
+  @contacts = Contact.all(:fields=>[:email])
+  puts @emails
   erb :attribute
 end
 
