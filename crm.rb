@@ -15,7 +15,7 @@ class Contact
 end
 
 DataMapper.finalize
-DataMapper.auto_upgrade!
+DataMapper.auto_upgrade!        #takes care of changes in database structure in between executions
 
 
 @@rolodex = Rolodex.new         #like a global variable for the lifetime of the app; ignore the warning "class variable access from toplevel"
@@ -35,6 +35,7 @@ get '/contacts/new' do
   erb :new_contact
 end
 
+#Fetches the form for changing a single contact's details
 get "/contacts/:id/edit" do
   @contact = Contact.get(params[:id].to_i)
   if @contact
@@ -64,7 +65,6 @@ end
 #Display an attribute
 get '/attribute' do             #at the moment, shows all emails
   @contacts = Contact.all(:fields=>[:email])
-  puts @contacts
   erb :attribute
 end
 
@@ -85,9 +85,9 @@ end
 
 #Handle delete contact form submission (POST request + method argument specifying DELETE)
 delete "/contacts/:id" do
-  @contact = @@rolodex.search_contact(params[:id].to_i)
+  @contact = Contact.get(params[:id].to_i)
   if @contact
-    @@rolodex.delete(@contact)
+    @contact.destroy
     redirect to("/contacts")
   else
     raise Sinatra::NotFound
@@ -97,7 +97,6 @@ end
 #Handle contact creation form submission (POST request)
 post '/contacts' do
   puts params
-  #@@rolodex.add_contact(params['first_name'], params['last_name'], params['email'], params['note'])
   contact = Contact.create(
     :first_name => params[:first_name],
     :last_name => params[:last_name],
