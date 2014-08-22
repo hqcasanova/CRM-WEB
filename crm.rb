@@ -36,7 +36,7 @@ get '/contacts/new' do
 end
 
 get "/contacts/:id/edit" do
-  @contact = @@rolodex.search_contact(params[:id].to_i)
+  @contact = Contact.get(params[:id].to_i)
   if @contact
     erb :edit_contact
   else
@@ -64,18 +64,19 @@ end
 #Display an attribute
 get '/attribute' do             #at the moment, shows all emails
   @contacts = Contact.all(:fields=>[:email])
-  puts @emails
+  puts @contacts
   erb :attribute
 end
 
 #Handle edit contact form submission (POST request + method argument specifying PUT)
 put "/contacts/:id" do
-  @contact = @@rolodex.search_contact(params[:id].to_i)
+  @contact = Contact.get(params[:id].to_i)
   if @contact
     @contact.first_name = params[:first_name]
     @contact.last_name = params[:last_name]
     @contact.email = params[:email]
-    @contact.notes = params[:notes]
+    @contact.note = params[:note]
+    @contact.save               #make changes permanent
     redirect to("/contacts")
   else
     raise Sinatra::NotFound
