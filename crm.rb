@@ -1,6 +1,23 @@
 require 'sinatra'
-require_relative 'contact'      #the _relative makes sure it works relative to local folder
+require 'data_mapper'
 require_relative 'rolodex'
+
+DataMapper.setup(:default, "sqlite3:database.sqlite3")    #creates a local file called "database.sqlite3" = whole db
+
+class Contact
+  include DataMapper::Resource
+  attr_accessor :id, :first_name, :last_name, :email, :notes
+
+  property :id, Serial
+  property :first_name, String
+  property :last_name, String
+  property :email, String
+  property :note, String
+end
+
+DataMapper.finalize
+DataMapper.auto_upgrade!
+
 
 @@rolodex = Rolodex.new         #like a global variable for the lifetime of the app; ignore the warning "class variable access from toplevel"
 @@app_name = "HQCRM"

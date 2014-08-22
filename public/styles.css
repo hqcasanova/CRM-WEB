@@ -140,6 +140,15 @@ footer > a, address {
 .main-menu {
   line-height: 3em;
 }
+ul.main-menu {
+  padding: 1em;
+  color: rgb(250,250,250);
+  background-color: rgba(0,0,0,.2);
+  border-radius: .5em;
+}
+ul.main-menu a {
+  color: white;
+}
 .main-menu li:before {
   content: "\25B6";
   padding-right: .4em;
