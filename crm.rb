@@ -6,6 +6,7 @@ require_relative 'rolodex'
 @@app_name = "HQCRM"
 @@company_name = "HQCasanova"
 @index = false
+@show_contact = false
 
 #Main menu
 get '/' do 
@@ -31,6 +32,7 @@ end
 get '/contacts/:id' do
   @contact = @@rolodex.search_contact(params[:id].to_i)
   if @contact
+    @show_contact = true
     erb :show_contact
   else
     raise Sinatra::NotFound

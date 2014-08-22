@@ -4,10 +4,9 @@
   <p><span>Notes:</span> <%= @contact.notes %></p>
 </div>
 <div class="toolbox">
-  <a title="Edit contact" href="/contacts/<%= @contact.id %>/edit">Edit</a>
+  <a class="edit" title="Edit contact" href="/contacts/<%= @contact.id %>/edit">Edit</a>
   <form action="/contacts/<%= @contact.id %>" method="post">
     <input type="hidden" name="_method" value="delete">
-    <input type="submit" value="Delete contact">
+    <input class="delete" type="submit" value="Delete">
   </form>
-  <a title="Show all contacts" href="/contacts">×</a>
 </div>

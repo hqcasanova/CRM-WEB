@@ -30,7 +30,7 @@ footer, header, hgroup, menu, nav, section {
   display: block;
 }
 html, body {
-  font-family: Georgia, Baskerville, Times, serif;
+  font-family: 'Open Sans', sans-serif;
   font-size: 24px;
   line-height: 1.5;
 }
@@ -52,18 +52,33 @@ table {
 * {
   box-sizing: border-box;
 }
-a {color: black}
+a {
+  color: black;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
 /***** END OF RESET *****/
 
 header {
+  padding: 0 1em;
   height: 2.2em;
-  color: white;
+  color: #145a66;
   background-color: #145a66
+}
+header a {
+  color: white;
+}
+header a, header a:hover {
+  text-decoration: none;
 }
 h1 {
   font-size: 1.5em;
   font-style: italic;
-  text-align: center;
+}
+h1, footer {
+  font-family: Georgia, Baskerville, Times, serif;
 }
 
 .site-nav {
@@ -82,12 +97,18 @@ section {
   bottom: 1.5em;
   padding: 0 2%;
   width: 80%;
+  background: url('/rolodex.jpg') no-repeat bottom right #fdfbef;
+
 }
 
 section > h1 {
   margin: .8em 0;
   font-size: 1.3em;
   border-bottom: 1px solid black;
+}
+section > h1:before {
+  content: '';
+  padding: .6em;
 }
 
 .site-nav, section {
@@ -102,13 +123,12 @@ footer {
   background-color: #145a66
 }
 
+.site-nav a {
+  line-height: 4em;
+}
 .site-nav a, footer a {
   font-size: .8em;
   color: white;
-  text-decoration: none;
-}
-.site-nav a:hover, footer a:hover {
-  text-decoration: underline;
 }
 
 footer > a, address {
@@ -139,9 +159,13 @@ section li.contact {
   border-radius: 2em;
   box-shadow: .2em .2em .2em rgba(0,0,0,.5);
   border: .2em solid #145a66;
+  background-color: #faf2cd;
 }
 li.contact:hover {
   box-shadow: 0 0 0 7px rgba(220,220,220,.4);
+}
+li.contact p {
+  border-bottom: 1px solid rgb(220,220,220);
 }
 section .contact span {
   padding: .2em;
@@ -151,6 +175,9 @@ section .contact span {
 }
 .contact a {
   text-decoration: none;
+}
+.contact-name {
+  text-align: left;
 }
 
 legend {
@@ -188,6 +215,18 @@ input[type="submit"] {
 }
 .toolbox form {
   display: inline-block;
+}
+.edit {
+  font-size: .8em;
+}
+.delete { 
+  border: none;
+  text-decoration: none;
+  background-color: white;
+  cursor: pointer;
+}
+.delete:hover {
+  text-decoration: underline;
 }
 .back {
   margin-top: 2em;
