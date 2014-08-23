@@ -21,12 +21,9 @@ DataMapper.auto_upgrade!        #takes care of changes in database structure in 
 @@rolodex = Rolodex.new         #like a global variable for the lifetime of the app; ignore the warning "class variable access from toplevel"
 @@app_name = "HQCRM"
 @@company_name = "HQCasanova"
-@index = false
-@show_contact = false
 
 #Main menu
 get '/' do 
-  @index = true
   erb :index                    
 end
 
@@ -49,7 +46,6 @@ end
 get '/contacts/:id' do
   @contact = Contact.get(params[:id].to_i)
   if @contact
-    @show_contact = true
     erb :show_contact
   else
     raise Sinatra::NotFound
@@ -58,7 +54,7 @@ end
 
 #List all the contacts
 get '/contacts' do
-  @contacts = Contact.all       #select * from contacts
+  @contacts = Contact.all(:order => [:first_name.asc])       #select * from contacts sorted by first name
   erb :contacts                 #erb 'contacts/new.rb' if you reflect the structure of the url
 end
 

@@ -8,22 +8,30 @@
 </head>
 <body>
   <header>
-    <h1><a href="/"><%= @@app_name %></a> <%= @@company_name %><</h1>
+    <h1>
+      <a href="/"><%= @@app_name %></a>
+      <% request.path[1..-1].split('/').each do |page| %>
+        <% path = "#{path}/#{page}" %>
+        <a class="breadcrumb" title="Go to <%= page %>" href="<%= path %>"> &gt; <%= page %></a>
+      <% end %>
+    </h1>
   </header>
   <nav class="site-nav">
     <ul>
-      <li><a href="/">Main menu</a></li>  
-      <li><a href="/contacts">Show contacts</a></li>
-      <li><a href="/attribute">Show emails</a></li>
-      <li><a href="/contacts/new">New contact</a></li>
+      <li <%= "class='current'" if request.path == '/' %>><a href="/">Main menu</a></li>  
+      <li <%= "class='current'" if request.path['contacts'] && !request.path['contacts/new'] %>><a href="/contacts">Show contacts</a></li>
+      <li <%= "class='current'" if request.path == '/attribute' %>><a href="/attribute">Show emails</a></li>
+      <li <%= "class='current'" if request.path == '/contacts/new' %>><a href="/contacts/new">New contact</a></li>
     </ul>
   </nav>
-  <section>
+  <section <%= "class='home'" if request.path == '/' %>>
     <%= yield %>
-    <% if !@index && !@show_contact %>
-      <p class="back"><a title="Go back to the main menu" href="/">Back to menu</a></p>
-    <% elsif @show_contact %>
+    <% if request.path['edit'] %>
+      <p class="back"><a title="Go back to the current contact's details" href="<%= request.path[0..-6] %>">Back to current contact</a></p>  
+    <% elsif request.path['contacts/'] && !request.path['contacts/new'] %>
       <p class="back"><a title="Go back to all contacts" href="/contacts">Back to all contacts</a></p>
+    <% elsif request.path != '/' %>
+      <p class="back"><a title="Go back to the main menu" href="/">Back to menu</a></p>
     <% end %>
   </section>
   <footer>
