@@ -58,10 +58,10 @@ get '/contacts' do
   erb :contacts                 #erb 'contacts/new.rb' if you reflect the structure of the url
 end
 
-#Display an attribute
-get '/attribute' do             #at the moment, shows all emails
+#Display all emails
+get '/emails' do             
   @contacts = Contact.all(:fields=>[:email])
-  erb :attribute
+  erb :emails
 end
 
 #Handle edit contact form submission (POST request + method argument specifying PUT)

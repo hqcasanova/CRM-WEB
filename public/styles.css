@@ -111,7 +111,6 @@ section > h1:before {
 }
 p {
   margin: .75em 0;
-  font-size: .9em;
 }
 
 .site-nav, section {
@@ -180,6 +179,7 @@ footer > a, address {
 }
 section .contact {
   display: inline-block;
+  font-family: 'Waiting for the Sunrise', cursive;
 }
 section li.contact {
   margin: 2%;
@@ -197,7 +197,7 @@ li.contact:hover {
   box-shadow: 0 0 0 7px rgba(220,220,220,.4);
 }
 li.contact p {
-  border-bottom: 1px solid rgb(220,220,220);
+  border-bottom: 1px solid rgba(92,98,116,.2);
 }
 li.contact p.punch {
   margin: 0;
@@ -217,9 +217,9 @@ li.contact .punch:before, li.contact .punch:after {
 section .contact span {
   margin-right: .3em;
   padding: .2em;
+  font-family: 'Open Sans', sans-serif;
   font-size: .8em;
-  color: white;
-  background-color: #145a66;
+  color: #145a66;
 }
 .contact a {
   text-decoration: none;
