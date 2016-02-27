@@ -2,7 +2,7 @@ require 'sinatra'
 require 'data_mapper'
 require_relative 'rolodex'
 
-DataMapper.setup(:default, "sqlite3:database.sqlite3")    #creates a local file called "database.sqlite3" = whole db
+DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3:database.sqlite3")    #creates a local file called "database.sqlite3" = whole db
 
 class Contact
   include DataMapper::Resource
